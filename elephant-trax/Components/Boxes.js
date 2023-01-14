@@ -10,7 +10,7 @@ import attach from '../assets/attached.png'
 import camera from '../assets/camera.png'
 
 
-const Boxes = ({plus,product}) => {
+const Boxes = ({plus,product,attach,camera,location,location1}) => {
   return (
     <LinearGradient style={{marginTop:20,borderRadius:8}} colors={['rgba(255, 255, 255,0.8)','rgba(243, 238, 247,0.4)']} start={[0,0]} end={[1,1]}  >
     <View style={styles.box3}>
@@ -28,23 +28,32 @@ const Boxes = ({plus,product}) => {
           />
         
         <View>
-          <Text style={{fontSize:18,marginTop:-60}}>box no 3</Text>
+          <Text style={{fontSize:18,marginTop:-60}}>Box no:03</Text>
         </View>
         <View style={styles.locationview}>
-          <Image style={{height:16,width:13,marginRight:6}} source={location}/>
+          <Image style={{height:16,width:13,marginRight:6}} source={location1}/>
           <Text style={{color:'rgba(0, 0, 0, 0.5)'}}>Rawalpindi,Pakistan</Text>
         </View>
         <View style={styles.icons}>
+          {attach && 
           <View style={styles.attach}>
           <Image style={{height:30,width:20}} source={attach}/>
           </View>
-          <View style={styles.camera}>
+            }
+            {camera &&
+
+              <View style={styles.camera}>
          <Image style={{height:30,width:20,resizeMode:'contain'}} source={camera}/>
          </View>
-         <View  style={styles.locat}>
+          }
+          {location &&
+
+            <View  style={styles.locat}>
          <Image style={{height:20,width:15}} source={location}/>
          </View>
+        }
         </View>
+        <Text></Text>
         </View>
      
     </LinearGradient>

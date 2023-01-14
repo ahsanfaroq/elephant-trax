@@ -13,6 +13,7 @@ import { BlurView } from 'expo-blur'
 
 
 const SavePackage = ({navigation}) => {
+  
 
     const [keywordList,setKeywordList] = useState([
         {
@@ -32,12 +33,14 @@ const SavePackage = ({navigation}) => {
             <Text style={{color:'rgba(0, 0, 0, 0.5)'}}>Keyword</Text>
             </View>
         )
+    
+   
     }
    return (
   <LinearGradient colors={['#7166F9','#C6E6FF']} start={[0,1]} end={[1,0]} locations={[0.38,1]} style={{flex:1}}>
     <ScrollView contentContainerStyle={{flexGrow:1}}>
     <View style={styles.viewall}>
-    <Header imageStyle={{height:28,width:28}} source={arrow}/>
+    <Header imageStyle={{height:28,width:28}} source={arrow} onPress={()=>navigation.goBack()}/>
     <Text style={styles.text}>Create Your Package</Text>
     <Boxes product={product2} plus={deleteicon}/>
     <View style={styles.createbuttons}>
@@ -53,7 +56,7 @@ const SavePackage = ({navigation}) => {
             <Text style={{marginRight:10, color:'white', fontSize:16,fontWeight:'700'}}>Select all</Text>
             <Image style={{height:30,width:25}} source={deleteicon}/>
         </View>
-            <BlurView  style={{marginTop:20,borderRadius:8,flexDirection:'row',width:"95%",alignItems:"center",alignSelf:'flex-end'}} 
+            <BlurView  style={{marginTop:20,borderRadius:8,flexDirection:'row',width:"95%",alignItgems:"center",alignSelf:'flex-end'}} 
             intensity={100}>
             <Image style={{marginTop:15,height:90,width:74,resizeMode:"cover",marginLeft:-25}} source={nike}/>
 

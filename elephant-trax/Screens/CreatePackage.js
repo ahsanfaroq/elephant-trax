@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet, Text, View,Image, TextInput, TouchableOpacity} from 'react-native'
-import React from 'react'
+import { ScrollView, StyleSheet, Text, View,Image, TextInput, TouchableOpacity, Pressable} from 'react-native'
+import React,{useState} from 'react'
 import humburger from '../assets/humburger.png'
 import notification from '../assets/notification.png'
 import sign from '../assets/sign.png'
@@ -12,8 +12,27 @@ import product from '../assets/productimage.png'
 import location from '../assets/location.png'
 import attach from '../assets/attached.png'
 import camera from '../assets/camera.png'
+import * as ImagePicker from 'expo-image-picker';
 
 const CreatePackage = ({navigation}) => {
+  const [image, setImage] = useState(null);
+
+    const pickImage = async () => {
+      // No permissions request is necessary for launching the image library
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+  
+      console.log(result);
+  
+      if (!result.canceled) {
+        setImage(result.assets[0].uri);
+      }
+    };
+  
   
   return (
     <LinearGradient colors={['#7166F9','#C6E6FF']} start={[0,1]} end={[1,0]} locations={[0.38,1]} style={{flex:1}}>
@@ -45,9 +64,9 @@ const CreatePackage = ({navigation}) => {
               <Text style={{color:'rgba(0, 0, 0, 0.5)'}}>Rawalpindi,Pakistan</Text>
             </View>
             <View style={styles.icons}>
-              <View style={styles.attach}>
+              <Pressable style={styles.attach} onPress={pickImage} >
               <Image style={{height:30,width:20}} source={attach}/>
-              </View>
+              </Pressable>
               <View style={styles.camera}>
              <Image style={{height:30,width:20,resizeMode:'contain'}} source={camera}/>
              </View>

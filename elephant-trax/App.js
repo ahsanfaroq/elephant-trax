@@ -10,9 +10,14 @@ import Home from './Screens/Home'
 import CreatePackage from './Screens/CreatePackage'
 import SavePackage from './Screens/SavePackage';
 import OopsPackage from './Screens/OopsPackage';
+import Add from './Screens/Add'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import ImageePicker from './Components/ImageePicker';
+import FindBox from './Screens/FindBox';
+import PrivacyPolicy from './Screens/PrivacyPolicy';
+import Profile from './Screens/Profile';
+import FindKeyword from './Screens/FindKeyword'
 export default function App() {
   const Stack = createNativeStackNavigator();
 
@@ -24,15 +29,18 @@ export default function App() {
   // <ResetPassword/>
   // <NewPassword/>
   //  <Home/> */}
-    <Stack.Navigator initialRouteName='Save' screenOptions={{headerShown:false}}>
+    <Stack.Navigator initialRouteName='PrivacyPolicy' screenOptions={{headerShown:false}}>
       <Stack.Screen name='Home' component={Home} />
       <Stack.Screen name='Package' component={CreatePackage}/>
       <Stack.Screen name='Save' component={SavePackage}/>
-      {/* <Stack.Screen name='Oops' component={OopsPackage}/> */}
-
-    </Stack.Navigator>
+      <Stack.Screen name='Oops' component={OopsPackage}/>
+      <Stack.Screen name='Add' component={Add}/>
+      <Stack.Screen name='FindBox' component={FindBox}/>
+      <Stack.Screen name='PrivacyPolicy' component={PrivacyPolicy}/>
+      <Stack.Screen name='Profile' component={Profile}/>
+    </Stack.Navigator> 
     {/* <CreatePackage/> */}
-    
+
     </NavigationContainer>
   );
 }
